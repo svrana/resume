@@ -12,7 +12,7 @@
         devShell = pkgs.mkShell {
           nativeBuildInputs = [ pkgs.bashInteractive ];
           buildInputs = [
-            pkgs.texlive.combined.scheme-basic
+            pkgs.texlive.combined.scheme-full
           ];
         };
       });
