@@ -7,9 +7,9 @@ help: ## Show this help
 
 @PHONY: build
 build: ## Bulid latex resume to pdf
-	pdflatex resume.tex
+	pdflatex -jobname=shaw-vrana-resume resume.tex
 
 @PHONY: deploy
 deploy: build ## Deploy resume to s3 where it is linked to from vranix.com
-	aws s3 cp --acl "public-read" resume.pdf s3://${BUCKET_NAME}/shaw-vrana-resume.pdf
+	aws s3 cp --acl "public-read" shaw-vrana-resume.pdf s3://${BUCKET_NAME}/shaw-vrana-resume.pdf
 	aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths /shaw-vrana-resume.pdf
