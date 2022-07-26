@@ -6,7 +6,7 @@ help: ## Show this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[/.a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .PHONY: build
-build: ## Bulid latex resume to pdf
+build: ## Build latex resume to pdf
 	pdflatex -jobname=shaw-vrana-resume resume.tex
 
 .PHONY: deploy
